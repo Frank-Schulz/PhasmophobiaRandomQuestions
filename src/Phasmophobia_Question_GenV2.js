@@ -1,15 +1,10 @@
-// 'use strict';
-
 // Create DOM selectors
 const active = document.getElementsByClassName('active > a');
 
 const topicText = document.getElementsByClassName('topic');
 const questionText = document.getElementsByClassName('question');
 
-const btn = document.getElementById('btn');
-// const spiritBtn = document.getElementById('spiritBtn');
-
-// console.log(topicText, questionText, ouijaBtn, spiritBtn);
+const btn = document.getElementsByClassName('button');
 
 // Declare variables
 let topic;
@@ -130,19 +125,12 @@ let spiritBoxQuestions = [
 ];
 
 // Generate the random question
-function randomQuestion(questions) {    
+function randomQuestion(questions, ele) {
     topic = questions[Math.floor(Math.random() * questions.length)];
     question = topic[Math.ceil(Math.random() * (topic.length - 1))];
 
-    topicText.innerText = `Topic: ${topic[0]}`;
-    questionText.innerText = `${question}`;
+    topicText[ele].innerText = `Topic: ${topic[0]}`;
+    questionText[ele].innerText = `${question}`;
+
+    console.log(questionText.innerText);
 }
-
-// Add event listeners
-// btn.addEventListener('click', () => {
-//     console.log(active.innerText);
-
-// });
-// spiritBtn.addEventListener('click', randomQuestion(spiritBoxQuestions))
-
-
